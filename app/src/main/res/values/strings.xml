@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Hotel App</string>
+
+    <string name="error_hotel_not_found"> Hotel não encontrado</string>
 </resources>

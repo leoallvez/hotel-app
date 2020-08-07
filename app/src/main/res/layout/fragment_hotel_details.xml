@@ -20,13 +20,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/rtbRating"
+        app:layout_constraintBottom_toTopOf="@+id/rtb_rating"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_name"
         tools:text="Endereço" />
     <RatingBar
-        android:id="@+id/rtbRating"
+        android:id="@+id/rtb_rating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:progressTint="@color/colorAccent"
