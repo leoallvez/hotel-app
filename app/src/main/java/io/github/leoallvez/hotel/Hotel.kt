@@ -8,3 +8,4 @@ data class Hotel(
 ) {
     override fun toString()= name
 }
+

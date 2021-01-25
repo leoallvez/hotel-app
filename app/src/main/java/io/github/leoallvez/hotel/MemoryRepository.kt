@@ -1,6 +1,6 @@
 package io.github.leoallvez.hotel
 
-object MemoryRepository: HotelRepository {
+object MemoryRepository : HotelRepository {
 
     private var nextId = 1L
     private val hotelsList = mutableListOf<Hotel>()
