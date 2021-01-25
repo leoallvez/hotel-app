@@ -18,6 +18,11 @@ class HotelDetailsFragment : Fragment(), HotelDetailsView {
         return inflater.inflate(R.layout.fragment_hotel_details, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        presenter.loadHotelDetails(arguments?.getLong(EXTRA_HOTEL_ID, -1) ?: -1)
+    }
+
     override fun showHotelDetails(hotel: Hotel) {
         this.hotel = hotel
         with(hotel) {
