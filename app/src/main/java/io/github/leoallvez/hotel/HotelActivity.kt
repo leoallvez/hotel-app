@@ -3,12 +3,10 @@ package io.github.leoallvez.hotel
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.os.PersistableBundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.SearchView
-import kotlinx.android.synthetic.*
+import androidx.appcompat.widget.SearchView
 
 class HotelActivity : AppCompatActivity(),
         HotelListFragment.OnHotelClickListener,
@@ -59,7 +57,7 @@ class HotelActivity : AppCompatActivity(),
         searchView?.queryHint = getString(R.string.hint_search)
         searchView?.setOnQueryTextListener(this)
 
-        if(lastSearchTerm.isEmpty()) {
+        if(lastSearchTerm.isNotEmpty()) {
             Handler().post {
                 val query = lastSearchTerm
                 searchItem.expandActionView()
@@ -71,6 +69,10 @@ class HotelActivity : AppCompatActivity(),
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item?.itemId) {
+            R.id.action_info -> AboutDialogFragment().show(supportFragmentManager, "sobre")
+        }
+
         return super.onOptionsItemSelected(item)
     }
 
