@@ -6,7 +6,7 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.fragment.app.ListFragment
 
-class HotelListFragment : ListFragment(), HotelListView {
+taclass HotelListFragment : ListFragment(), HotelListView {
 
     private val presenter = HotelListPresenter(this, MemoryRepository)
 
