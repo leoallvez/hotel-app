@@ -12,7 +12,10 @@ class HotelActivity : AppCompatActivity(),
         HotelListFragment.OnHotelClickListener,
         SearchView.OnQueryTextListener,
         MenuItem.OnActionExpandListener,
-        HotelFormFragment.OnHotelSavedListener {
+        HotelFormFragment.OnHotelSavedListener,
+        HotelListFragment.OnHotelDeletedListener{
+
+    private var hotelIdSelected: Long = -1
 
     private var lastSearchTerm: String = ""
     private var searchView: SearchView? = null
@@ -27,15 +30,18 @@ class HotelActivity : AppCompatActivity(),
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
+        outState?.putLong(EXTRA_HOTEL_ID_SELECTED, hotelIdSelected)
         outState.putString(EXTRA_SEARCH_TERM, lastSearchTerm)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
+        hotelIdSelected = savedInstanceState?.getLong(EXTRA_HOTEL_ID_SELECTED) ?: 0
         lastSearchTerm = savedInstanceState?.getString(EXTRA_SEARCH_TERM) ?: ""
     }
 
     override fun onHotelClick(hotel: Hotel) = if(isTablet()) {
+        hotelIdSelected = hotel.id
         showDetailsFragment(hotel.id)
     } else {
         showDetailsActivity(hotel.id)
@@ -106,7 +112,20 @@ class HotelActivity : AppCompatActivity(),
         listFragment.search(lastSearchTerm)
     }
 
+    override fun onHotelsDeleted(hotels: List<Hotel>) {
+        if(hotels.find{ it.id == hotelIdSelected} != null) {
+            val fragment = supportFragmentManager.findFragmentByTag(HotelDetailsFragment.TAG_DETAILS)
+            fragment?.let {
+                supportFragmentManager
+                        .beginTransaction()
+                        .remove(fragment)
+                        .commit()
+            }
+        }
+    }
+
     companion object {
-        const val EXTRA_SEARCH_TERM = "lastSearch"
+        const val EXTRA_SEARCH_TERM  = "lastSearch"
+        const val EXTRA_HOTEL_ID_SELECTED = "lastSelectedId"
     }
 }
