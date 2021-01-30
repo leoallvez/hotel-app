@@ -99,7 +99,7 @@ class HotelListFragment : ListFragment(),
         }
     }
 
-    /**
+
     override fun showMessageHotelsDeleted(count: Int) {
         Snackbar.make(listView,
                 getString(R.string.message_hotels_deleted, count),
@@ -109,7 +109,6 @@ class HotelListFragment : ListFragment(),
                 }
                 .show()
     }
-    */
 
     override fun onActionItemClicked(mode: ActionMode?, item: MenuItem?): Boolean {
         if (item?.itemId == R.id.action_delete) {

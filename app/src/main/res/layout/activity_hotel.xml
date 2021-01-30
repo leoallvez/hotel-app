@@ -7,17 +7,18 @@
     <fragment android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:name="io.github.leoallvez.hotel.HotelListFragment"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/fragmentList"/>
-    <!--
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:tint="@android:color/white"
-        app:src="@drawable/ic_add"
+        android:src="@drawable/ic_add"
         app:fabSize="normal"
         app:borderWidth="0dp"
         android:layout_gravity="bottom|end"/>
-    -->
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

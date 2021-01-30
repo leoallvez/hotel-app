@@ -1,16 +1,41 @@
 package io.github.leoallvez.hotel
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.appcompat.widget.ShareActionProvider
+import androidx.core.view.MenuItemCompat
 import kotlinx.android.synthetic.main.fragment_hotel_details.*
 
 class HotelDetailsFragment : Fragment(), HotelDetailsView {
 
     private val presenter = HotelDetailsPresenter(this, MemoryRepository)
+    private var shareActionProvider : ShareActionProvider? = null
     private var hotel: Hotel? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater?.inflate(R.menu.hotel_details, menu)
+        val shareItem = menu?.findItem(R.id.action_share)
+        shareActionProvider = MenuItemCompat.getActionProvider(shareItem) as? ShareActionProvider
+        setShareIntent()
+
+    }
+
+    private fun setShareIntent() {
+        val text = getString(R.string.share_text, hotel?.name, hotel?.rating)
+        shareActionProvider?.setShareIntent(Intent(Intent.ACTION_SEND).apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_DOCUMENT)
+            type = "text/plain"
+            putExtra(Intent.EXTRA_TEXT, text)
+        })
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
