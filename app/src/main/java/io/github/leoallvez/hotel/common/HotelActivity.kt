@@ -1,5 +1,7 @@
 package io.github.leoallvez.hotel.common
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -32,6 +34,13 @@ class HotelActivity : AppCompatActivity(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hotel)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode == 0 && resultCode == Activity.RESULT_OK) {
+            listFragment.search(lastSearchTerm)
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -113,9 +122,13 @@ class HotelActivity : AppCompatActivity(),
 
     private fun isTablet() = findViewById<View>(R.id.details) != null
 
-    //TODO: method stranger.
     override fun onHotelSaved(hotel: Hotel) {
         listFragment.search(lastSearchTerm)
+        val detailsFragment = supportFragmentManager
+                .findFragmentByTag(HotelDetailsFragment.TAG_DETAILS) as? HotelDetailsFragment
+        if(detailsFragment != null && hotel.id == hotelIdSelected) {
+            showDetailsFragment(hotelIdSelected)
+        }
     }
 
     override fun onHotelsDeleted(hotels: List<Hotel>) {

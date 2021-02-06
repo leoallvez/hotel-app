@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.appcompat.widget.ShareActionProvider
 import androidx.core.view.MenuItemCompat
 import io.github.leoallvez.hotel.*
+import io.github.leoallvez.hotel.form.HotelFormFragment
 import io.github.leoallvez.hotel.model.Hotel
 import io.github.leoallvez.hotel.repository.memory.MemoryRepository
 import kotlinx.android.synthetic.main.fragment_hotel_details.*
@@ -31,6 +32,16 @@ class HotelDetailsFragment : Fragment(), HotelDetailsView {
         shareActionProvider = MenuItemCompat.getActionProvider(shareItem) as? ShareActionProvider
         setShareIntent()
 
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item?.itemId == R.id.action_edit) {
+            HotelFormFragment
+                    .newInstance(hotel?.id ?: 0)
+                    .open(requireFragmentManager())
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
     private fun setShareIntent() {
