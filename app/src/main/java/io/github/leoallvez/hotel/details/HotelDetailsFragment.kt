@@ -10,10 +10,12 @@ import io.github.leoallvez.hotel.*
 import io.github.leoallvez.hotel.model.Hotel
 import io.github.leoallvez.hotel.repository.memory.MemoryRepository
 import kotlinx.android.synthetic.main.fragment_hotel_details.*
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
 class HotelDetailsFragment : Fragment(), HotelDetailsView {
 
-    private val presenter = HotelDetailsPresenter(this, MemoryRepository)
+    private val presenter: HotelDetailsPresenter by inject { parametersOf(this) }
     private var shareActionProvider : ShareActionProvider? = null
     private var hotel: Hotel? = null
 
