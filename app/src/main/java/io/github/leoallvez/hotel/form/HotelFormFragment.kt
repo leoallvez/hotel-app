@@ -1,4 +1,4 @@
-package io.github.leoallvez.hotel
+package io.github.leoallvez.hotel.form
 
 import android.os.Bundle
 import android.view.*
@@ -6,6 +6,9 @@ import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
+import io.github.leoallvez.hotel.*
+import io.github.leoallvez.hotel.model.Hotel
+import io.github.leoallvez.hotel.repository.memory.MemoryRepository
 import kotlinx.android.synthetic.main.fragment_hotel_form.*
 
 class HotelFormFragment : DialogFragment(), HotelFormView {

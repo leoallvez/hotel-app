@@ -1,4 +1,7 @@
-package io.github.leoallvez.hotel
+package io.github.leoallvez.hotel.repository.memory
+
+import io.github.leoallvez.hotel.repository.HotelRepository
+import io.github.leoallvez.hotel.model.Hotel
 
 object MemoryRepository : HotelRepository {
 

@@ -1,4 +1,4 @@
-package io.github.leoallvez.hotel
+package io.github.leoallvez.hotel.details
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,9 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.appcompat.widget.ShareActionProvider
 import androidx.core.view.MenuItemCompat
+import io.github.leoallvez.hotel.*
+import io.github.leoallvez.hotel.model.Hotel
+import io.github.leoallvez.hotel.repository.memory.MemoryRepository
 import kotlinx.android.synthetic.main.fragment_hotel_details.*
 
 class HotelDetailsFragment : Fragment(), HotelDetailsView {

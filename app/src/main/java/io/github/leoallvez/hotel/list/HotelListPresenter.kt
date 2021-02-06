@@ -1,8 +1,11 @@
-package io.github.leoallvez.hotel
+package io.github.leoallvez.hotel.list
+
+import io.github.leoallvez.hotel.repository.HotelRepository
+import io.github.leoallvez.hotel.model.Hotel
 
 class HotelListPresenter(
-    private val view: HotelListView,
-    private val repository: HotelRepository
+        private val view: HotelListView,
+        private val repository: HotelRepository
 ) {
     private var lastTerm = ""
     private var inDeleteMode = false

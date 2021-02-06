@@ -1,5 +1,7 @@
-package io.github.leoallvez.hotel
+package io.github.leoallvez.hotel.form
 
+import io.github.leoallvez.hotel.model.Hotel
+import io.github.leoallvez.hotel.repository.HotelRepository
 import java.lang.Exception
 
 class HotelFormPresenter (

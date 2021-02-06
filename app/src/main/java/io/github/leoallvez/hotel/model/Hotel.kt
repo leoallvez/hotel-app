@@ -1,4 +1,4 @@
-package io.github.leoallvez.hotel
+package io.github.leoallvez.hotel.model
 
 data class Hotel(
     var id: Long = 0,
@@ -6,6 +6,6 @@ data class Hotel(
     var address: String = "",
     var rating: Float = 0.0F
 ) {
-    override fun toString()= name
+    override fun toString() = name
 }
 

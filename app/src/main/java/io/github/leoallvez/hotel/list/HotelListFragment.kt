@@ -1,4 +1,4 @@
-package io.github.leoallvez.hotel
+package io.github.leoallvez.hotel.list
 
 import android.os.Bundle
 import android.view.Menu
@@ -11,6 +11,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.fragment.app.ListFragment
 import com.google.android.material.snackbar.Snackbar
+import io.github.leoallvez.hotel.repository.memory.MemoryRepository
+import io.github.leoallvez.hotel.R
+import io.github.leoallvez.hotel.model.Hotel
 
 class HotelListFragment : ListFragment(),
         HotelListView,

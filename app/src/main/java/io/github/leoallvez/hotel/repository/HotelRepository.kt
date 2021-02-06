@@ -1,4 +1,6 @@
-package io.github.leoallvez.hotel
+package io.github.leoallvez.hotel.repository
+
+import io.github.leoallvez.hotel.model.Hotel
 
 interface HotelRepository {
     fun save(hotel: Hotel)

@@ -1,9 +1,10 @@
-package io.github.leoallvez.hotel
+package io.github.leoallvez.hotel.details
 
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import io.github.leoallvez.hotel.R
 
 class HotelDetailsActivity : AppCompatActivity() {
 

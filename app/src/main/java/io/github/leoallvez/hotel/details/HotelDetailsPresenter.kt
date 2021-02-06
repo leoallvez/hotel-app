@@ -1,8 +1,10 @@
-package io.github.leoallvez.hotel
+package io.github.leoallvez.hotel.details
+
+import io.github.leoallvez.hotel.repository.HotelRepository
 
 class HotelDetailsPresenter (
-    private val view: HotelDetailsView,
-    private val repository: HotelRepository
+        private val view: HotelDetailsView,
+        private val repository: HotelRepository
 ) {
 
     fun loadHotelDetails(id: Long) {

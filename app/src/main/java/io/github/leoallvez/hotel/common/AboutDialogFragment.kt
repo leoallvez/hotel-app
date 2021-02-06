@@ -1,4 +1,4 @@
-package io.github.leoallvez.hotel
+package io.github.leoallvez.hotel.common
 
 import android.app.AlertDialog
 import android.app.Dialog
@@ -7,6 +7,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
+import io.github.leoallvez.hotel.R
 
 class AboutDialogFragment : DialogFragment() {
 

@@ -1,4 +1,4 @@
-package io.github.leoallvez.hotel
+package io.github.leoallvez.hotel.common
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,13 +7,19 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.widget.SearchView
+import io.github.leoallvez.hotel.*
+import io.github.leoallvez.hotel.details.HotelDetailsActivity
+import io.github.leoallvez.hotel.details.HotelDetailsFragment
+import io.github.leoallvez.hotel.form.HotelFormFragment
+import io.github.leoallvez.hotel.list.HotelListFragment
+import io.github.leoallvez.hotel.model.Hotel
 
 class HotelActivity : AppCompatActivity(),
         HotelListFragment.OnHotelClickListener,
         SearchView.OnQueryTextListener,
         MenuItem.OnActionExpandListener,
         HotelFormFragment.OnHotelSavedListener,
-        HotelListFragment.OnHotelDeletedListener{
+        HotelListFragment.OnHotelDeletedListener {
 
     private var hotelIdSelected: Long = -1
 

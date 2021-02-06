@@ -1,4 +1,6 @@
-package io.github.leoallvez.hotel
+package io.github.leoallvez.hotel.list
+
+import io.github.leoallvez.hotel.model.Hotel
 
 interface HotelListView {
     fun showHotels(hotels: List<Hotel>)
