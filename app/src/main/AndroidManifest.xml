@@ -3,21 +3,31 @@
     package="io.github.leoallvez.hotel">
 
     <application
+        android:name=".HotelApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyApplication"
-        android:name=".HotelApp">
-        <activity android:name=".common.HotelActivity" android:launchMode="singleTop">
+        android:theme="@style/Theme.MyApplication">
+        <provider
+            android:name=".repository.HotelProvider"
+            android:authorities="io.github.leoallvez.hotel"
+            android:enabled="true"
+            android:exported="true"></provider>
+
+        <activity
+            android:name=".common.HotelActivity"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".details.HotelDetailsActivity"
-            android:parentActivityName=".common.HotelActivity"/>
+            android:parentActivityName=".common.HotelActivity" />
     </application>
+
 </manifest>

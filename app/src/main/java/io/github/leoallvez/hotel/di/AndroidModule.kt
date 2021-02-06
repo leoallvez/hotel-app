@@ -7,15 +7,13 @@ import io.github.leoallvez.hotel.form.HotelFormView
 import io.github.leoallvez.hotel.list.HotelListPresenter
 import io.github.leoallvez.hotel.list.HotelListView
 import io.github.leoallvez.hotel.repository.HotelRepository
-import io.github.leoallvez.hotel.repository.sqlite.SQLiteRepository
+import io.github.leoallvez.hotel.repository.sqlite.ProviderRepository
 import org.koin.dsl.module
-
-//import org.koin.dsl.module.module
 
 val androidModule = module {
     single { this }
     single {
-        SQLiteRepository(context = get()) as HotelRepository
+        ProviderRepository(ctx = get()) as HotelRepository
     }
     factory { (view: HotelListView) ->
         HotelListPresenter(
