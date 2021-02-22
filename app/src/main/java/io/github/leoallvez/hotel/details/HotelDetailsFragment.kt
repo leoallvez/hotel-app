@@ -6,17 +6,16 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.appcompat.widget.ShareActionProvider
 import androidx.core.view.MenuItemCompat
+import androidx.lifecycle.Observer
 import io.github.leoallvez.hotel.*
 import io.github.leoallvez.hotel.form.HotelFormFragment
 import io.github.leoallvez.hotel.model.Hotel
-import io.github.leoallvez.hotel.repository.memory.MemoryRepository
 import kotlinx.android.synthetic.main.fragment_hotel_details.*
-import org.koin.android.ext.android.inject
-import org.koin.core.parameter.parametersOf
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class HotelDetailsFragment : Fragment(), HotelDetailsView {
+class HotelDetailsFragment : Fragment() {
 
-    private val presenter: HotelDetailsPresenter by inject { parametersOf(this) }
+    private val viewModel: HotelDetailsViewModel by viewModel()
     private var shareActionProvider : ShareActionProvider? = null
     private var hotel: Hotel? = null
 
@@ -61,10 +60,21 @@ class HotelDetailsFragment : Fragment(), HotelDetailsView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        presenter.loadHotelDetails(arguments?.getLong(EXTRA_HOTEL_ID, -1) ?: -1)
+        val id = arguments?.getLong(EXTRA_HOTEL_ID, -1) ?: -1
+        viewModel.loadHotelDetails(id).observe(viewLifecycleOwner, Observer { hotel ->
+            if(hotel != null) {
+                showHotelDetails(hotel)
+            } else {
+                activity?.supportFragmentManager
+                        ?.beginTransaction()
+                        ?.remove(this)
+                        ?.commit()
+                errorHotelNotFound()
+            }
+        })
     }
 
-    override fun showHotelDetails(hotel: Hotel) {
+    private fun showHotelDetails(hotel: Hotel) {
         this.hotel = hotel
         with(hotel) {
             txtName.text = name
@@ -73,7 +83,7 @@ class HotelDetailsFragment : Fragment(), HotelDetailsView {
         }
     }
 
-    override fun errorHotelNotFound() {
+    private fun errorHotelNotFound() {
         txtName.text = getString(R.string.error_hotel_not_found)
         txtAddress.visibility = View.GONE
         rtbRating.visibility = View.GONE

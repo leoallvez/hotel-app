@@ -6,7 +6,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import io.github.leoallvez.hotel.model.Hotel
 import io.github.leoallvez.hotel.repository.HotelRepository
-
+/**
 class SQLiteRepository(context: Context): HotelRepository {
 
     private val helper: HotelSqlHelper = HotelSqlHelper(context)
@@ -94,3 +94,4 @@ class SQLiteRepository(context: Context): HotelRepository {
         }
     }
 }
+        */

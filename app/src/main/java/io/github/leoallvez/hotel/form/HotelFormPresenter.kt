@@ -11,11 +11,11 @@ class HotelFormPresenter (
     private val validator = HotelValidator()
 
     fun loadHotel(id: Long) {
-        repository.hotelById(id) { hotel ->
-            if(hotel != null) {
-                view.showHotel(hotel)
-            }
-        }
+//        repository.hotelById(id) { hotel ->
+//            if(hotel != null) {
+//                view.showHotel(hotel)
+//            }
+//        }
     }
 
     fun saveHotel(hotel: Hotel) = if(validator.validate(hotel)) {

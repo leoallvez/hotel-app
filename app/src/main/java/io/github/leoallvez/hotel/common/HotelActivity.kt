@@ -5,10 +5,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.widget.SearchView
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import io.github.leoallvez.hotel.*
 import io.github.leoallvez.hotel.details.HotelDetailsActivity
 import io.github.leoallvez.hotel.details.HotelDetailsFragment

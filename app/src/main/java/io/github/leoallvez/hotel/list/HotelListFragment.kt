@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.fragment.app.ListFragment
 import com.google.android.material.snackbar.Snackbar
-import io.github.leoallvez.hotel.repository.memory.MemoryRepository
 import io.github.leoallvez.hotel.R
 import io.github.leoallvez.hotel.model.Hotel
 import org.koin.android.ext.android.inject

@@ -9,7 +9,7 @@ import io.github.leoallvez.hotel.R
 import io.github.leoallvez.hotel.form.HotelFormFragment
 import io.github.leoallvez.hotel.model.Hotel
 
-class HotelDetailsActivity : AppCompatActivity(), HotelFormFragment.OnHotelSavedListener {
+class HotelDetailsActivity : AppCompatActivity() {
 
     private val hotelId: Long by lazy {
         intent.getLongExtra(EXTRA_HOTEL_ID, -1)
@@ -38,10 +38,5 @@ class HotelDetailsActivity : AppCompatActivity(), HotelFormFragment.OnHotelSaved
                     Intent(activity, HotelDetailsActivity::class.java).apply {
                         putExtra(EXTRA_HOTEL_ID, hotelId) },0)
         }
-    }
-
-    override fun onHotelSaved(hotel: Hotel) {
-        setResult(RESULT_OK)
-        showHotelDetailsFragment()
     }
 }

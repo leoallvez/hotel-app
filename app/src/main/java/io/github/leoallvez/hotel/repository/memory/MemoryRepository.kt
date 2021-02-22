@@ -2,7 +2,7 @@ package io.github.leoallvez.hotel.repository.memory
 
 import io.github.leoallvez.hotel.repository.HotelRepository
 import io.github.leoallvez.hotel.model.Hotel
-
+/**
 object MemoryRepository : HotelRepository {
 
     private var nextId = 1L
@@ -53,3 +53,4 @@ object MemoryRepository : HotelRepository {
         callback(resultList.sortedBy { it.name })
     }
 }
+ */

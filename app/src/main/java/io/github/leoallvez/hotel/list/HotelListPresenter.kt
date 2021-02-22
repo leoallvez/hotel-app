@@ -24,9 +24,9 @@ class HotelListPresenter(
 
     fun searchHotels(term: String) {
         lastTerm = term
-        repository.search(term) { hotels ->
-            view.showHotels(hotels)
-        }
+//        repository.search(term) { hotels ->
+//            view.showHotels(hotels)
+//        }
     }
 
     fun showHotelDetails(hotel: Hotel) {

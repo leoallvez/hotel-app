@@ -7,7 +7,7 @@ import android.net.Uri
 import io.github.leoallvez.hotel.model.Hotel
 import io.github.leoallvez.hotel.repository.HotelProvider
 import io.github.leoallvez.hotel.repository.HotelRepository
-
+/**
 class ProviderRepository(val ctx: Context) : HotelRepository {
 
     override fun save(hotel: Hotel) {
@@ -79,3 +79,4 @@ class ProviderRepository(val ctx: Context) : HotelRepository {
         return  Hotel(id, name, address, rating)
     }
 }
+ */
