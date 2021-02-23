@@ -20,7 +20,7 @@ class HotelListViewModel(private val repository: HotelRepository) : ViewModel() 
     }
 
     private val selectedItems = mutableListOf<Hotel>()
-    private val selectedCount = MutableLiveData<Int>()
+    private val selectionCount = MutableLiveData<Int>()
     private val selectedHotels = MutableLiveData<List<Hotel>>().apply {
         value = selectedItems
     }
@@ -34,7 +34,9 @@ class HotelListViewModel(private val repository: HotelRepository) : ViewModel() 
 
     fun getHotels(): LiveData<List<Hotel>>? = hotels
 
-    fun selectionCount(): LiveData<Int> = selectedCount
+    fun selectionCount(): LiveData<Int> = selectionCount
+
+    fun selectedHotels(): LiveData<List<Hotel>> = selectedHotels
 
     fun showDeletedMessage(): LiveData<Int> = showDeletedMessage()
 
@@ -46,7 +48,7 @@ class HotelListViewModel(private val repository: HotelRepository) : ViewModel() 
             if(selectedItems.size == 0) {
                 inDeleteMode.value = false
             } else {
-                selectedCount.value = selectedItems.size
+                selectionCount.value = selectedItems.size
                 selectedHotels.value = selectedItems
             }
         } else {
@@ -69,7 +71,7 @@ class HotelListViewModel(private val repository: HotelRepository) : ViewModel() 
 
     fun setInDeleteMode(deleteMode: Boolean) {
         if(!deleteMode) {
-            selectedCount.value = 0
+            selectionCount.value = 0
             selectedItems.clear()
             selectedHotels.value = selectedItems
             showDeletedMessage.value = selectedItems.size
